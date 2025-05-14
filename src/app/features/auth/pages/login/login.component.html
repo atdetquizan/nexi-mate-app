@@ -1,0 +1,24 @@
+<div class="flex items-center justify-center h-screen bg-gray-100">
+  <div class="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
+    <h2 class="text-2xl font-bold mb-4 text-center">Iniciar Sesión</h2>
+    <form>
+      <input
+        type="email"
+        placeholder="Correo electrónico"
+        class="w-full mb-4 p-2 border border-gray-300 rounded"
+      />
+      <input
+        type="password"
+        placeholder="Contraseña"
+        class="w-full mb-4 p-2 border border-gray-300 rounded"
+      />
+      <button
+      type="button"
+        class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
+        (click)="onClickedLogin()"
+      >
+        Iniciar Sesión
+      </button>
+    </form>
+  </div>
+</div>
