@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://api.tu-dominio.com/api' // Cambia esta URL según tu entorno de producción
+  apiUrl: 'https://nexi-mate-api.vercel.app/api/v1' // Cambia esta URL según tu entorno de producción
 };

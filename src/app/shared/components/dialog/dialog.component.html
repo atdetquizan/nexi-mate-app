@@ -1,0 +1,64 @@
+<div
+  class="dialog-wrapper"
+  aria-labelledby="modal-title"
+  role="dialog"
+  aria-modal="true"
+  [ngClass]="config()?.classname ?? {}"
+>
+  <div class="dialog-backdrop" aria-hidden="true"></div>
+  <div class="dialog-container">
+    <div class="dialog-content">
+      <div class="dialog-box" (clickOutside)="onClickOutside()">
+        <ng-template dialog></ng-template>
+        @if (config()?.type) {
+        <div class="dialog-body">
+          @if(config()?.img) {
+          <div class="image-container">
+            <img [src]="config()?.img" />
+          </div>
+          }
+          <div class="icon-container">
+            @if (config()?.type === 'warning') {
+            <div class="icon-wrapper warning">
+              <i class="vectofy-warning"></i>
+            </div>
+            } @if (config()?.type === 'error') {
+            <div class="icon-wrapper error">
+              <i class="vectofy-info"></i>
+            </div>
+            } @if (config()?.type === 'info') {
+            <div class="icon-wrapper info">
+              <i class="vectofy-info"></i>
+            </div>
+            } @if (config()?.type === 'success') {
+            <div class="icon-wrapper success">
+              <i class="vectofy-check-circle"></i>
+            </div>
+            }
+          </div>
+          <h1 class="dialog-title">{{ config()?.title }}</h1>
+          <p class="dialog-message" [innerHTML]="config()?.message"></p>
+          <div class="dialog-actions">
+            @if (config()?.buttons?.isAccept) {
+            <vcp-button
+              type="primary"
+              [label]="config()?.buttons?.accept ?? 'Aceptar'"
+              size="xlg"
+              (clicked)="dialogRef.close(true)"
+            />
+            }
+            @if (config()?.buttons?.isExit) {
+            <vcp-button
+              [label]="config()?.buttons?.exit ?? 'Salir'"
+              type="secondary"
+              size="xlg"
+              (clicked)="dialogRef.close(false)"
+            />
+            }
+          </div>
+        </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>
