@@ -1,0 +1,35 @@
+<aside
+  [ngClass]="sidebar.collapsed() ? 'w-20' : 'w-64'"
+  class="h-full bg-white border-r border-gray-300 flex flex-col justify-between transition-all duration-300"
+>
+  <div>
+    <div class="flex items-center justify-center py-6">
+      @if (!sidebar.collapsed()) {
+      <img src="/logo.png" alt="mamix" class="h-8" />
+      } @if (sidebar.collapsed()) {
+      <img src="/logo-toggle.png" alt="mamix" class="h-8" />
+      }
+    </div>
+    <nav class="px-2 flex flex-col space-y-2">
+      @for (item of menus(); track $index) {
+      <a
+        [routerLink]="[item.path]"
+        routerLinkActive="bg-gray-100 text-indigo-600"
+        class="flex items-center hover:bg-indigo-50 rounded-lg p-2"
+      >
+        <i [class]="item.icon"></i>
+        @if (!sidebar.collapsed()) {
+        <span class="ml-2">{{ item.title }}</span>
+        }
+      </a>
+      }
+      <!-- <a href="#" class="flex items-center hover:bg-gray-100 rounded-lg p-2">
+        <i class="ri-apps-2-line"></i>
+        @if (!sidebar.collapsed()) {
+        <span class="ml-2">Apps</span>
+        }
+      </a> -->
+      <!-- Puedes agregar más menús usando otros iconos de Remix Icon -->
+    </nav>
+  </div>
+</aside>

@@ -1,1 +1,13 @@
-<router-outlet />
+<div class="flex min-h-screen bg-gray-50">
+  <!-- Sidebar -->
+  <app-sidebar />
+  <!-- Main Content -->
+  <main class="flex-1 flex flex-col">
+    <!-- Topbar -->
+    <app-topbar />
+    <div class="px-6 py-4">
+      <app-breadcrumb class="block mb-5"/>
+      <router-outlet />
+    </div>
+  </main>
+</div>

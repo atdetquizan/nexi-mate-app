@@ -1,0 +1,10 @@
+<div class="flex items-center text-sm space-x-2">
+  @for (breadcrumb of breadcrumbs; track $index; let last = $last) { @if (!last)
+  {
+  <span class="text-gray-400">{{ breadcrumb.label }}</span>
+  } @if (!last) {
+  <span class="mx-2 text-gray-400">»</span>
+  } @if (last) {
+  <span class="font-semibold text-gray-700">{{ breadcrumb.label }}</span>
+  } }
+</div>

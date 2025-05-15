@@ -1,0 +1,41 @@
+<header class="flex items-center justify-between bg-white px-6 py-4 shadow-sm">
+  <div class="flex items-center space-x-2">
+    <button
+      (click)="onClickToggleSidebar()"
+      class="p-2 rounded hover:bg-gray-100 flex items-center justify-center cursor-pointer"
+    >
+      @if (!sidebar.collapsed()) {
+      <i class="ri-menu-2-fill text-gray-400"></i>
+      } 
+      @if (sidebar.collapsed()) {
+      <i class="ri-close-large-fill text-gray-400"></i>
+      }
+    </button>
+    <button class="rounded-full bg-gray-100 p-2">
+      <i class="ri-translate-2"></i>
+    </button>
+    <button class="rounded-full bg-gray-100 p-2">
+      <i class="ri-thumb-up-line"></i>
+    </button>
+    <button class="relative rounded-full bg-gray-100 p-2">
+      <i class="ri-shopping-cart-2-line"></i>
+      <span
+        class="absolute top-0 right-0 bg-indigo-600 text-white text-xs rounded-full px-1.5"
+        >5</span
+      >
+    </button>
+    <button class="rounded-full bg-gray-100 p-2">
+      <i class="ri-notification-3-line"></i>
+    </button>
+    <button class="rounded-full bg-gray-100 p-2">
+      <i class="ri-fullscreen-line"></i>
+    </button>
+  </div>
+  <div class="flex items-center space-x-3">
+    <span class="font-medium text-gray-700">Mr. Jack</span>
+    <img src="/avatar.png" alt="avatar" class="w-8 h-8 rounded-full" />
+    <button class="rounded-full bg-gray-100 p-2">
+      <i class="ri-settings-3-line"></i>
+    </button>
+  </div>
+</header>

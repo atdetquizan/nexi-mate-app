@@ -1,0 +1,78 @@
+<div class="flex bg-gray-50">
+  <!-- Sidebar (puedes omitir si ya tienes uno global) -->
+
+  <!-- Contenido principal -->
+  <div class="flex-1">
+    <div class="flex items-center justify-between mb-6">
+      <h1 class="text-2xl font-bold text-gray-800">Personal</h1>
+      <div class="flex space-x-2">
+        <button
+          class="border px-4 py-2 rounded text-gray-600 hover:bg-gray-100"
+        >
+          Filter
+        </button>
+        <button
+          class="bg-blue-600 text-white px-4 py-2 rounded flex items-center hover:bg-blue-700"
+        >
+          Add New Client
+          <span class="ml-2 text-lg">+</span>
+        </button>
+      </div>
+    </div>
+    <div class="overflow-x-auto bg-white rounded-lg shadow">
+      <table class="min-w-full text-left">
+        <thead>
+          <tr class="border-b border-gray-200 text-sm">
+            <th class="px-4 py-3 font-medium text-gray-500">ID</th>
+            <th class="px-4 py-3 font-medium text-gray-500">
+              Nombre y Apellido
+            </th>
+            <th class="px-4 py-3 font-medium text-gray-500">Perfil</th>
+            <th class="px-4 py-3 font-medium text-gray-500">Tipo Doc.</th>
+            <th class="px-4 py-3 font-medium text-gray-500">Nro. Doc.</th>
+            <th class="px-4 py-3 font-medium text-gray-500">Fecha Nacimiento</th>
+            <th class="px-4 py-3 font-medium text-gray-500">Telefono</th>
+            <th class="px-4 py-3 font-medium text-gray-500">
+              Dep / Prov /Dist
+            </th>
+            <th class="px-4 py-3 font-medium text-gray-500">Dirección</th>
+            <th class="px-4 py-3 font-medium text-gray-500"></th>
+          </tr>
+        </thead>
+        <tbody class="divide-y">
+          @for (client of clients(); track $index) {
+          <tr class="hover:bg-gray-50 text-xs border-gray-200">
+            <td class="px-4 py-3 text-gray-700">{{ client.id }}</td>
+            <td class="px-4 py-3 text-gray-700">
+              {{ client.firstName + " " + client.lastName }}
+            </td>
+            <td class="px-4 py-3 text-gray-700">
+              <span class="flex items-center">
+                <span
+                  class="bg-blue-500 text-white font-medium text-xs px-3 py-1 rounded"
+                >
+                  {{ client.profile }}
+                </span>
+              </span>
+            </td>
+            <td class="px-4 py-3 text-gray-700">{{ client.documentType }}</td>
+            <td class="px-4 py-3 text-gray-700">{{ client.documentNumber }}</td>
+            <td class="px-4 py-3 text-gray-700">{{ client.birthDate | birthday }}</td>
+            <td class="px-4 py-3 text-gray-700">{{ client.phone }}</td>
+            <td class="px-4 py-3 text-gray-700">
+              {{ client.department }} / {{ client.province }} /
+              {{ client.district }}
+            </td>
+            <td class="px-4 py-3 text-gray-700">{{ client.address }}</td>
+            <td class="px-4 py-3 text-right">
+              <button type="button" class="text-gray-400 hover:text-gray-700 cursor-pointer hover:bg-gray-100 rounded-full px-2.5 py-2">
+                <span class="ri-more-2-fill"></span>
+              </button>
+            </td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
